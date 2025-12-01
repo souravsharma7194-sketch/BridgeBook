@@ -1,8 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 
 const Navbar = () => {
+
+const {user,logout} = useAuth();
+
+
   return (
    
 
@@ -11,8 +16,27 @@ const Navbar = () => {
     <div className="space-x-4">
       <Link to="/donate">Donate</Link>
       <Link to="/request">Request</Link>
-      <Link to="/login">Login</Link>
-    </div>
+      
+{ user ? (
+
+<>
+<span className='font-semibold'> Hi, {user.name}</span>
+<button onClick={logout} 
+className="bg-red-500 hover:bg-red-600 px-3 py-1 rounded">
+Logout
+</button>
+</>
+) : (
+
+<>
+
+<Link to= "/login">Login</Link>
+<Link to= "/signup">Signup</Link>
+
+</>
+)}
+
+</div>
   </nav>
 
 

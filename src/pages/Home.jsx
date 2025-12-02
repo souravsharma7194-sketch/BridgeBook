@@ -2,27 +2,31 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 const Home = () => {
   return (
-    <div className='text-center py-10'>
+ <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
 
+      <h1 className="text-5xl font-extrabold text-gray-800">
+        Welcome to <span className="text-blue-600">BookBridge</span> 📚
+      </h1>
 
-<h1 className='text-4xl font-bold'>Welcome to BookBridge 📚</h1>
-<p className='mt-4 text-lg'>Donate your unused books & help someone learn.</p>
+      <p className="mt-4 text-lg text-gray-600">
+        Donate your unused books & help someone learn.
+      </p>
 
-<div className='mt-6 flex justify-center gap-5'>
+      <div className="mt-8 flex gap-5">
+        <Link
+          to="/donate"
+          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+        >
+          Donate Book
+        </Link>
 
-<Link className='px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700'
- to ="/donate">
-Donate Book
-</Link>
-
-<Link className='px-6 py-3 bg-green-600 text-white rounded hover:bg-green-700'
- to = "/request">
-Request Book
-</Link>
-
-</div>
-
-
+        <Link
+          to="/request"
+          className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+        >
+          Request Book
+        </Link>
+      </div>
 
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 const Login = () => {
 
 const {login} = useAuth(); 
@@ -19,9 +19,23 @@ return;
 
 
 
-    const firstUser = {name: "John Cena", email};
+    const savedUser = JSON.parse(localStorage.getItem("bookbridge-user"));
+    
+if(!savedUser){
 
-    login(firstUser);
+alert("No user found! Please signup first.");
+return;
+}
+
+if(savedUser.email !== email || savedUser.password !== password){
+alert("Invalid email or password");
+return;
+}
+
+
+
+
+login({name: savedUser.name, email: savedUser.email});
      navigate("/");
 
 
@@ -57,6 +71,19 @@ onClick={handleLogin}
 >
     Login
 </button>
+
+
+
+<p
+ className="text-center text-sm mt-4">
+ Don’t have an account?
+        
+<Link to="/signup" 
+className="text-blue-600 hover:underline">
+Signup</Link>
+      
+  </p>
+
 
 
 </div>

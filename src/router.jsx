@@ -6,6 +6,7 @@ import RequestBook from './pages/RequestBook'
 import BookDetails from './pages/BookDetails'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import PrivateRoute from './components/PrivateRoute'
 
 const Approuter = () => {
   return (
@@ -14,9 +15,9 @@ const Approuter = () => {
 
 <Routes>
 <Route path="/" element = {<Home/>}/>
-<Route path="/donate" element = {<DonateBook/>}/>
+<Route path="/donate" element = {<PrivateRoute> <DonateBook/></PrivateRoute> }/>
 <Route path="/request" element = {<RequestBook/>}/>
-<Route path="/book/:id" element = {<BookDetails/>}/>
+<Route path="/book/:id" element = {<PrivateRoute><BookDetails/></PrivateRoute>}/>
 <Route path="/login" element = {<Login/>}/>
 <Route path="/signup" element = {<Signup/>}/>
  <Route path="*" element={<h2>404 - Page Not Found</h2>} />

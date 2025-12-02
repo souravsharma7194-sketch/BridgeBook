@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { useContext } from 'react';
 
 const AuthContext = createContext();
@@ -6,6 +6,24 @@ const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
   
   const [user,setUser] = useState(null);
+
+
+useEffect(()=>{
+
+const savedUser = localStorage.getItem("bookbridge-user");
+
+if(savedUser){
+
+const parsed = JSON.parse(savedUser);
+
+setUser({name: parsed.name, email: parsed.email})
+
+
+}
+
+},[]);
+
+
   
   const login = (userData) => setUser(userData);
   const logout = () => setUser(null);

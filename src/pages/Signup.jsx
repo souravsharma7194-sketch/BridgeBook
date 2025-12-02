@@ -27,8 +27,11 @@ return;
 
 }
 
-const newUser = {name,email};
-login(newUser);
+const userData = {name,email,password};
+localStorage.setItem("bookbridge-user",JSON.stringify(userData));
+
+
+login({name,email});
 navigate("/");
 
 

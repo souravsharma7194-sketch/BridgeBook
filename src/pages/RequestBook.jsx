@@ -28,7 +28,7 @@ return (
 placeholder="Search Books..."
 value={search}
 onChange={(e)=> setSearch(e.target.value)}
-className="w-full p-4 mb-6 border border-gray-300 rounded-lg focus:outline-blue-500"
+className="w-full p-4 mb-6 border border-gray-300 rounded-lg"
 
 />
 

@@ -17,7 +17,7 @@ const Approuter = () => {
 <Route path="/" element = {<Home/>}/>
 <Route path="/donate" element = {<PrivateRoute> <DonateBook/></PrivateRoute> }/>
 <Route path="/request" element = {<RequestBook/>}/>
-<Route path="/book/:id" element = {<PrivateRoute><BookDetails/></PrivateRoute>}/>
+<Route path="/book/:id" element = {<BookDetails/>}/>
 <Route path="/login" element = {<Login/>}/>
 <Route path="/signup" element = {<Signup/>}/>
  <Route path="*" element={<h2>404 - Page Not Found</h2>} />

@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const BookCard = ({book}) => {
   return (
+<Link to={`/book/${book.id}`}>
     <div className="bg-white shadow-md rounded-lg p-4 flex flex-col hover:shadow-lg transition ">
 
 <img
@@ -26,6 +28,7 @@ className="mt-auto bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 tran
 
 
     </div>
+    </Link>
   )
 }
 

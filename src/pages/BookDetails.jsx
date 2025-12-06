@@ -25,6 +25,28 @@ Book Not Found
 );
 }
 
+const handleRequest = () => {
+
+const requests = JSON.parse(localStorage.getItem("requested-books")) || [];
+
+
+if(requests.some((req)=> req.id === book.id)){
+
+alert("you already added this book!");
+return;
+
+}
+requests.push(book);
+localStorage.setItem("requested-books", JSON.stringify(requests));
+alert("book requested successfully");
+
+
+
+}
+
+
+
+
   return (
     <div className="max-w-4xl mx-auto p-6">
 <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col md:flex-row gap-6">
@@ -50,7 +72,9 @@ className="w-full md:w-1/3 h-72 object-cover rounded-xl"
 )}
 
 <div className="mt-auto">
-<button className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">Request This Book</button>
+<button
+onClick={handleRequest}
+className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">Request This Book</button>
 
 
 </div>
